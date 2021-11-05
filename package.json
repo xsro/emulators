@@ -24,6 +24,11 @@
         "url": "https://github.com/caiiiycuk/js-dos/issues"
     },
     "homepage": "https://js-dos.com",
+    "scripts": {
+        "build": "gulp",
+        "compile-tsc": "tsc -p .",
+        "pretest": "http-server dist"
+    },
     "devDependencies": {
         "@babel/core": "^7.9.6",
         "@babel/preset-env": "^7.9.6",
@@ -69,6 +74,7 @@
         "typescript": "^3.8.3",
         "uglify": "^0.1.5",
         "vinyl-buffer": "^1.0.1",
-        "vinyl-source-stream": "^2.0.0"
+        "vinyl-source-stream": "^2.0.0",
+        "http-server": "^14.0.0"
     }
 }

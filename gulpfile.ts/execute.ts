@@ -15,7 +15,7 @@ function executeImpl(file: string, nolog: boolean, ...args: string[]): Promise<s
             log("execute", file, ...args);
         }
         const started = Date.now();
-        execFile(file, args, { maxBuffer: 16 * 1024 * 1024 }, (error, stdout, stderr) => {
+        const p=execFile(file, args, { maxBuffer: 16 * 1024 * 1024 }, (error, stdout, stderr) => {
             if (error !== null) {
                 fatal(error, stdout, stderr);
             } else {
@@ -26,5 +26,6 @@ function executeImpl(file: string, nolog: boolean, ...args: string[]): Promise<s
                 resolve(stdout);
             }
         });
+        p.stdout.pipe(process.stdout);
     });
 }
